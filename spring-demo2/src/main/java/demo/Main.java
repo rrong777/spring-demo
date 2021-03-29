@@ -9,7 +9,9 @@ public class Main {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
         context.register(AppConfig.class);
         context.refresh();
-        context.getBean("testService", TestService.class).testMethod();
+        TestService testService = context.getBean("testService", TestService.class);
+        testService.testMethod();
+        testService.test222();
         System.out.println();
     }
 }
