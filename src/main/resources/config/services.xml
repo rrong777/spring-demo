@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--    相当于daos.xml里面的东西也在这里面写了，applicationContext加载这一个文件就够了-->
+<!--    这里resource 指向的都是相对路径-->
+    <import resource="daos.xml"></import>
+<!--  使bean定义跨越多个XML文件可能会很有用。通常，每个单独的XML配置文件都代表体系结构中的逻辑层或模块。
+        这个文件就是service层
+  -->
+    <bean id="testStore" class="demo.service.impl.TestStoreServiceImpl">
+        <property name="test1Dao" ref="test1Dao"></property>
+        <property name="test2Dao" ref="test2Dao"></property>
+    </bean>
+
+
+</beans>
